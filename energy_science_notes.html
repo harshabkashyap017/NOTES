@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ Energy Science & Technology – Your Awesome Study Guide</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --wind-blue: #1e88e5;
+  --wind-light: #e3f2fd;
+  --wind-dark: #0d47a1;
+  --bio-green: #2e7d32;
+  --bio-light: #e8f5e9;
+  --bio-dark: #1b5e20;
+  --formula-bg: #fff8e1;
+  --formula-border: #f57f17;
+  --example-bg: #fce4ec;
+  --example-border: #c62828;
+  --tip-bg: #f3e5f5;
+  --tip-border: #7b1fa2;
+  --yellow: #ffeb3b;
+  --orange: #ff7043;
+  --teal: #00897b;
+  --pink: #e91e63;
+  --bg: #f8f9ff;
+  --card: #ffffff;
+  --text: #212121;
+  --shadow: 0 4px 20px rgba(0,0,0,0.12);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 17px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #00897b 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 12px;
+  position: relative;
+}
+.hero .badges {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+  position: relative;
+}
+.badge {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ── NAV TOC ── */
+.toc {
+  background: white;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: -30px auto 40px;
+  max-width: 900px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.toc h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--wind-dark);
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.toc a {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: var(--text);
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+.toc a:hover { background: var(--wind-light); border-color: var(--wind-blue); }
+
+/* ── MAIN LAYOUT ── */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex; align-items: center; gap: 16px;
+  margin: 52px 0 24px;
+  padding: 20px 28px;
+  border-radius: var(--radius);
+  color: white;
+  box-shadow: var(--shadow);
+}
+.section-header.wind { background: linear-gradient(135deg, var(--wind-dark), var(--wind-blue)); }
+.section-header.bio  { background: linear-gradient(135deg, var(--bio-dark), var(--bio-green)); }
+.section-header .icon { font-size: 3rem; }
+.section-header h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+.section-header p { opacity: 0.9; font-size: 0.95rem; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--wind-blue);
+}
+.card.green { border-top-color: var(--bio-green); }
+.card.orange { border-top-color: var(--orange); }
+.card.pink { border-top-color: var(--pink); }
+.card.teal { border-top-color: var(--teal); }
+.card h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: var(--wind-dark);
+}
+.card.green h3 { color: var(--bio-dark); }
+.card.orange h3 { color: #bf360c; }
+.card.teal h3 { color: #004d40; }
+
+/* ── FORMULA BOX ── */
+.formula-box {
+  background: var(--formula-bg);
+  border-left: 5px solid var(--formula-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+  position: relative;
+}
+.formula-box::before {
+  content: '📐 Formula';
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--formula-border);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.formula-box p { margin: 6px 0; }
+.formula-box .label {
+  font-size: 0.88rem;
+  color: #555;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ── EXAMPLE BOX ── */
+.example-box {
+  background: var(--example-bg);
+  border-left: 5px solid var(--example-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+}
+.example-box::before {
+  content: '✏️ Worked Example';
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--example-border);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* ── TIP BOX ── */
+.tip-box {
+  background: var(--tip-bg);
+  border-left: 5px solid var(--tip-border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+.tip-box::before {
+  content: '💡 Remember!';
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--tip-border);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+/* ── INFO GRID ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.info-tile {
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+.info-tile .big { font-size: 2rem; display: block; margin-bottom: 4px; }
+.info-tile .lbl { font-size: 0.85rem; opacity: 0.8; }
+.blue-tile  { background: #e3f2fd; border: 2px solid #90caf9; color: #0d47a1; }
+.green-tile { background: #e8f5e9; border: 2px solid #a5d6a7; color: #1b5e20; }
+.orange-tile{ background: #fff3e0; border: 2px solid #ffcc80; color: #bf360c; }
+.pink-tile  { background: #fce4ec; border: 2px solid #f48fb1; color: #880e4f; }
+
+/* ── SVG DIAGRAMS ── */
+.diagram-wrap {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 2px dashed #ccc;
+}
+.diagram-wrap figcaption {
+  font-size: 0.88rem;
+  color: #666;
+  margin-top: 12px;
+  font-style: italic;
+}
+svg text { font-family: 'Nunito', sans-serif; }
+
+/* ── TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+th {
+  background: var(--wind-dark);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 800;
+}
+.green-table th { background: var(--bio-dark); }
+td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+tr:nth-child(even) td { background: #f5f5f5; }
+
+/* ── STEP BOX ── */
+.steps { counter-reset: step; }
+.step {
+  display: flex; gap: 16px;
+  margin: 14px 0;
+  align-items: flex-start;
+}
+.step-num {
+  background: var(--wind-blue);
+  color: white;
+  min-width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.step-num.green { background: var(--bio-green); }
+
+/* ── HIGHLIGHT ── */
+.hl-yellow { background: #fff9c4; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.hl-blue   { background: #bbdefb; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.hl-green  { background: #c8e6c9; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.hl-pink   { background: #f8bbd0; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.hl-orange { background: #ffe0b2; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+/* ── ANALOGY BOX ── */
+.analogy {
+  display: flex; gap: 14px;
+  background: #fff3e0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  align-items: flex-start;
+}
+.analogy .emoji { font-size: 2rem; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+  font-size: 0.9rem;
+  background: white;
+  margin-top: 60px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════ -->
+<div class="hero">
+  <h1>⚡ Energy Science & Technology</h1>
+  <p>Your Super-Friendly Study Guide — with Diagrams, Formulas & Examples!</p>
+  <div class="badges">
+    <span class="badge">🌬️ Wind Energy</span>
+    <span class="badge">🌿 Biomass Energy</span>
+    <span class="badge">📐 All Key Formulas</span>
+    <span class="badge">✏️ Worked Examples</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ TOC ════════════════════════════ -->
+<div class="toc">
+  <h2>📚 What's Inside?</h2>
+  <div class="toc-grid">
+    <a href="#wind-intro">🌬️ Wind Energy Basics</a>
+    <a href="#actuator">💿 Actuator Disk Model</a>
+    <a href="#betz">🏆 Betz Limit (59.3%)</a>
+    <a href="#momentum">📐 Momentum Theory</a>
+    <a href="#power-coeff">⚙️ Power Coefficient</a>
+    <a href="#wind-speed">📊 Wind Speed Variation</a>
+    <a href="#wind-farm">🏗️ Wind Farm Design</a>
+    <a href="#jensen">🔄 Jensen Wake Model</a>
+    <a href="#biomass">🌿 Biomass Energy</a>
+    <a href="#gasification">🔥 Gasification</a>
+    <a href="#biogas">💧 Biogas Plant</a>
+    <a href="#biodiesel">🚗 Biodiesel</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ MAIN ═══════════════════════════ -->
+<main>
+
+<!-- ════════════════════════ WIND ENERGY SECTION ════════════════════════ -->
+<div class="section-header wind" id="wind-intro">
+  <div class="icon">🌬️</div>
+  <div>
+    <h2>Wind Energy</h2>
+    <p>Harnessing the power of moving air to generate electricity!</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🌍 What is Wind Energy?</h3>
+  <p>Wind energy is just the energy in <strong>moving air</strong>. When wind blows, the air molecules are moving — and that movement carries <em>kinetic energy</em>. We capture this energy using <strong>wind turbines</strong>.</p>
+
+  <div class="analogy">
+    <div class="emoji">🚴</div>
+    <div>Think of it like riding a bike downhill — the faster you go, the more energy you have. Same with wind — the faster it blows, the more energy it carries!</div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-tile blue-tile"><span class="big">375 GW</span><span class="lbl">🌍 Global Installed Capacity</span></div>
+    <div class="info-tile green-tile"><span class="big">50 GW</span><span class="lbl">🇮🇳 India's Installed Capacity</span></div>
+  </div>
+
+  <!-- Wind Turbine Types Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="700" height="300" fill="#e8f4fd" rx="12"/>
+      
+      <!-- Title -->
+      <text x="350" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#0d47a1">Wind Energy Generation – Types of Turbines</text>
+
+      <!-- HAWT Box -->
+      <rect x="40" y="55" width="260" height="200" rx="14" fill="#1e88e5" fill-opacity="0.1" stroke="#1e88e5" stroke-width="2"/>
+      <text x="170" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#0d47a1">HAWT</text>
+      <text x="170" y="99" text-anchor="middle" font-size="11" fill="#333">(Horizontal Axis Wind Turbine)</text>
+      <!-- HAWT Turbine Drawing -->
+      <line x1="170" y1="105" x2="170" y2="220" stroke="#666" stroke-width="4"/>
+      <ellipse cx="170" cy="105" rx="4" ry="4" fill="#444"/>
+      <!-- blades -->
+      <line x1="170" y1="105" x2="170" y2="60" stroke="#1565c0" stroke-width="6" stroke-linecap="round"/>
+      <line x1="170" y1="105" x2="135" y2="128" stroke="#1565c0" stroke-width="6" stroke-linecap="round"/>
+      <line x1="170" y1="105" x2="205" y2="128" stroke="#1565c0" stroke-width="6" stroke-linecap="round"/>
+      <!-- ground -->
+      <rect x="155" y="218" width="30" height="8" rx="3" fill="#888"/>
+      <!-- arrow for wind -->
+      <line x1="55" y1="140" x2="115" y2="140" stroke="#42a5f5" stroke-width="2.5" marker-end="url(#arrowB)"/>
+      <text x="58" y="134" font-size="11" fill="#1565c0">Wind →</text>
+      <text x="130" y="250" text-anchor="middle" font-size="11" fill="#444">2 or 3 blades</text>
+      <text x="130" y="268" text-anchor="middle" font-size="11" fill="#444">Horizontal axis = axis ∥ wind</text>
+
+      <!-- VAWT Box -->
+      <rect x="400" y="55" width="260" height="200" rx="14" fill="#43a047" fill-opacity="0.1" stroke="#43a047" stroke-width="2"/>
+      <text x="530" y="82" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b5e20">VAWT</text>
+      <text x="530" y="99" text-anchor="middle" font-size="11" fill="#333">(Vertical Axis Wind Turbine)</text>
+      <!-- VAWT drawing (Darrieus style) -->
+      <line x1="530" y1="110" x2="530" y2="225" stroke="#666" stroke-width="4"/>
+      <ellipse cx="530" cy="110" rx="4" ry="4" fill="#444"/>
+      <path d="M530,110 Q490,150 530,210 Q570,150 530,110" fill="none" stroke="#2e7d32" stroke-width="5"/>
+      <path d="M530,110 Q570,150 530,210 Q490,150 530,110" fill="none" stroke="#2e7d32" stroke-width="5"/>
+      <rect x="517" y="222" width="26" height="8" rx="3" fill="#888"/>
+      <text x="530" y="250" text-anchor="middle" font-size="11" fill="#444">Egg-beater / Savonius shape</text>
+      <text x="530" y="268" text-anchor="middle" font-size="11" fill="#444">Axis ⊥ to ground</text>
+
+      <!-- center arrow -->
+      <text x="350" y="155" text-anchor="middle" font-size="20" fill="#555">VS</text>
+
+      <defs>
+        <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#42a5f5"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 1: Two main types of wind turbines — HAWT (most common) and VAWT</figcaption>
+  </div>
+
+  <div class="tip-box">For large-scale electricity generation, we use <strong>wind farms</strong> which can be either <strong>offshore</strong> (on the sea/water) or <strong>onshore</strong> (on land). Offshore farms get stronger, steadier winds!</div>
+</div>
+
+<!-- ══════════════════════ ACTUATOR DISK MODEL ═══════════════════════ -->
+<div class="card" id="actuator">
+  <h3>💿 The Actuator Disk Model</h3>
+  <p>To figure out <em>how much energy</em> we can extract from wind, we use the <strong>Actuator Disk Model</strong>. It imagines the wind turbine as a simple flat disk that slows the wind down.</p>
+
+  <div class="analogy">
+    <div class="emoji">🤚</div>
+    <div>Imagine putting your hand out of a car window. Your hand slows down the air passing through it — that's exactly what the actuator disk does to wind!</div>
+  </div>
+
+  <!-- Actuator Disk Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 250" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="250" fill="#e3f2fd" rx="12"/>
+      <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#0d47a1">Actuator Disk Model — Wind Slowing Down</text>
+
+      <!-- streamtube -->
+      <path d="M30,60 Q120,55 200,80 L200,170 Q120,195 30,190 Z" fill="#90caf9" fill-opacity="0.35" stroke="#1e88e5" stroke-width="1.5"/>
+      <!-- disk -->
+      <rect x="195" y="75" width="12" height="100" rx="4" fill="#1565c0"/>
+      <!-- wake streamtube -->
+      <path d="M207,80 Q310,90 500,110 L500,140 Q310,160 207,170 Z" fill="#42a5f5" fill-opacity="0.25" stroke="#1e88e5" stroke-width="1.5"/>
+
+      <!-- velocity labels -->
+      <text x="80" y="132" text-anchor="middle" font-size="13" font-weight="bold" fill="#0d47a1">V_i (inlet)</text>
+      <!-- inlet arrow -->
+      <line x1="30" y1="125" x2="190" y2="125" stroke="#0d47a1" stroke-width="2.5" marker-end="url(#arrowW)"/>
+
+      <text x="350" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#006064">V_avg</text>
+      <line x1="207" y1="125" x2="490" y2="125" stroke="#006064" stroke-width="2.5" marker-end="url(#arrowW)"/>
+      
+      <!-- labels -->
+      <text x="201" y="200" text-anchor="middle" font-size="12" fill="#333" font-style="italic">Actuator</text>
+      <text x="201" y="216" text-anchor="middle" font-size="12" fill="#333" font-style="italic">Disk</text>
+      
+      <text x="560" y="128" font-size="13" font-weight="bold" fill="#e53935">V_o (outlet)</text>
+      <text x="110" y="50" font-size="11" fill="#555">Wind comes in fast</text>
+      <text x="360" y="175" text-anchor="middle" font-size="11" fill="#555">Wind slows down in the wake</text>
+
+      <!-- mass flow label -->
+      <text x="30" y="220" font-size="12" fill="#1a237e">ṁ_ω = mass flow rate of wind</text>
+
+      <defs>
+        <marker id="arrowW" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#0d47a1"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 2: Wind enters at velocity Vᵢ, passes through the actuator disk, and exits slower at V₀</figcaption>
+  </div>
+
+  <p>The average velocity through the disk is:</p>
+  <div class="formula-box">
+    \[ V_{avg} = \frac{V_i + V_o}{2} \]
+    <p class="label">V_i = inlet wind speed &nbsp;|&nbsp; V_o = outlet wind speed</p>
+  </div>
+
+  <p>The mass flow rate of wind through the disk:</p>
+  <div class="formula-box">
+    \[ \dot{m}_\omega = \rho A_D V_{avg} \]
+    <p class="label">ρ = density of air (≈1.225 kg/m³) &nbsp;|&nbsp; A_D = area of disk &nbsp;|&nbsp; V_avg = average velocity</p>
+  </div>
+
+  <p>The <strong>power output</strong> (kinetic energy extracted per second):</p>
+  <div class="formula-box">
+    \[ P_{out} = \frac{1}{2}\dot{m}_\omega(V_i^2 - V_o^2) \]
+    <p class="label">This is just the change in kinetic energy of the wind!</p>
+  </div>
+
+  <p>Substituting everything and simplifying (let <span class="hl-yellow">η = V_o/Vᵢ</span>):</p>
+  <div class="formula-box">
+    \[ P_{out} = \frac{1}{2}P_a(1 + \eta - \eta^2 - \eta^3) \]
+    where \( P_a = \frac{1}{2}\rho A V_i^3 \) is the <strong>power available in free stream</strong>
+  </div>
+</div>
+
+<!-- ══════════════════════ BETZ LIMIT ════════════════════════════════ -->
+<div class="card orange" id="betz">
+  <h3>🏆 The Betz Limit — Maximum Efficiency of ANY Wind Turbine!</h3>
+  <p>Albert Betz proved in 1919 that <strong>no wind turbine can ever extract more than 59.3%</strong> of the energy in the wind. This is called the <strong>Betz Limit</strong>!</p>
+
+  <div class="analogy">
+    <div class="emoji">🍰</div>
+    <div>It's like cutting a cake — you can never eat 100% of it cleanly. Some crumbs always escape! The Betz limit says at most ~59.3% of wind's energy can be captured.</div>
+  </div>
+
+  <p><strong>How do we find this maximum?</strong> We differentiate P_out with respect to η and set it to zero:</p>
+  <div class="formula-box">
+    \[ \frac{dP_{out}}{d\eta} = \frac{1}{2}P_a(1 - 2\eta - 3\eta^2) = 0 \]
+    Solving: \[ 3\eta^2 + 2\eta - 1 = 0 \implies \eta = \frac{1}{3} \text{ or } \eta = -1 \]
+    We take \(\eta = \frac{1}{3}\) (physically meaningful!)
+  </div>
+
+  <p>Plugging η = 1/3 back in:</p>
+  <div class="formula-box">
+    \[ P_{out}\big|_{max} = \frac{16}{27} P_a \approx \boxed{0.593 \; P_a} \]
+    <p class="label">This means maximum power extractable = 59.3% of available wind power</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-tile orange-tile"><span class="big">59.3%</span><span class="lbl">Betz Limit (theoretical max)</span></div>
+    <div class="info-tile blue-tile"><span class="big">η = 1/3</span><span class="lbl">V_o/V_i at max efficiency</span></div>
+    <div class="info-tile pink-tile"><span class="big">16/27</span><span class="lbl">Exact Betz fraction</span></div>
+  </div>
+
+  <div class="tip-box">This limit is <strong>universal</strong> — no matter how clever the turbine design, you physically cannot beat 59.3%! Real turbines typically achieve 35–45% because of blade losses, friction, etc.</div>
+</div>
+
+<!-- ══════════════════════ MOMENTUM THEORY ════════════════════════ -->
+<div class="card" id="momentum">
+  <h3>📐 1D Momentum Theory (Simplified)</h3>
+  <p>This is a more detailed analysis using <strong>conservation of momentum</strong>. We use control volumes (imagine invisible boxes around the air flow).</p>
+
+  <p><strong>Key assumptions:</strong></p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div>Flow is <strong>homogeneous, incompressible, steady</strong></div></div>
+    <div class="step"><div class="step-num">2</div><div><strong>No frictional drag</strong> on the blades</div></div>
+    <div class="step"><div class="step-num">3</div><div><strong>Infinite number of blades</strong> (a solid disk!)</div></div>
+    <div class="step"><div class="step-num">4</div><div><strong>Uniform thrust</strong> over the rotor area</div></div>
+    <div class="step"><div class="step-num">5</div><div>A <strong>non-rotating disk</strong> (no swirl in wake)</div></div>
+  </div>
+
+  <!-- Control Volume Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 280" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="280" fill="#f1f8e9" rx="12"/>
+      <text x="350" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b5e20">Control Volume Analysis — Momentum Theory</text>
+
+      <!-- CV-I outer box -->
+      <rect x="30" y="40" width="640" height="200" rx="8" fill="none" stroke="#43a047" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="38" y="60" font-size="12" fill="#2e7d32" font-weight="bold">CV-I</text>
+
+      <!-- CV-II inner box -->
+      <rect x="160" y="65" width="360" height="150" rx="8" fill="none" stroke="#1565c0" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="168" y="83" font-size="12" fill="#1565c0" font-weight="bold">CV-II</text>
+
+      <!-- Actuator disk -->
+      <rect x="318" y="68" width="14" height="144" rx="4" fill="#e53935"/>
+      <text x="325" y="230" text-anchor="middle" font-size="11" fill="#e53935" font-weight="bold">Disk</text>
+
+      <!-- Velocities -->
+      <text x="70" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#0d47a1">V₁</text>
+      <line x1="40" y1="145" x2="155" y2="145" stroke="#0d47a1" stroke-width="2.5" marker-end="url(#ar2)"/>
+
+      <text x="230" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#006064">V₂</text>
+      <line x1="167" y1="145" x2="312" y2="145" stroke="#006064" stroke-width="2.5" marker-end="url(#ar2)"/>
+
+      <text x="430" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#7b1fa2">V₃</text>
+      <line x1="338" y1="145" x2="512" y2="145" stroke="#7b1fa2" stroke-width="2.5" marker-end="url(#ar2)"/>
+
+      <text x="610" y="148" text-anchor="middle" font-size="14" font-weight="bold" fill="#e53935">V₄</text>
+      <line x1="525" y1="145" x2="665" y2="145" stroke="#e53935" stroke-width="2.5" marker-end="url(#ar2)"/>
+
+      <!-- Pressure labels -->
+      <text x="253" y="110" font-size="11" fill="#0d47a1">P₂ (↑ pressure)</text>
+      <text x="355" y="110" font-size="11" fill="#e53935">P₃ (↓ pressure)</text>
+
+      <!-- Thrust label -->
+      <text x="325" y="260" text-anchor="middle" font-size="11" fill="#333" font-style="italic">Thrust T = A₂(P₂ - P₃)</text>
+
+      <defs>
+        <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#0d47a1"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 3: Control volumes I and II for momentum analysis. V₁ = free stream, V₂/V₃ = just before/after disk, V₄ = far wake</figcaption>
+  </div>
+
+  <p>Applying <strong>Bernoulli's equation</strong> for CV-I and CV-II and combining:</p>
+  <div class="formula-box">
+    \[ P_2 - P_3 = \frac{1}{2}\rho(V_1^2 - V_4^2) \quad \cdots (iv) \]
+    <p>The <strong>Thrust force</strong> on the disk:</p>
+    \[ T = \frac{1}{2}\rho A(V_1^2 - V_4^2) \]
+    <p>Also: \( T = \rho A_2 V_2 (V_1 - V_4) \)</p>
+    <p class="label">Assuming V₂ = V₃ (velocity is continuous across disk)</p>
+  </div>
+
+  <p>Now we define <span class="hl-yellow">a = axial induction factor</span> = fractional decrease in velocity:</p>
+  <div class="formula-box">
+    \[ a = \frac{V_1 - V_2}{V_1} \implies V_2 = V_1(1-a) \quad \cdots (6) \]
+    \[ V_4 = V_1(1 - 2a) \quad \cdots (7) \]
+    <p class="label">a is also called <strong>axial induction factor</strong></p>
+  </div>
+
+  <div class="tip-box">
+    <strong>What is 'a'?</strong> If a = 0, the turbine isn't slowing the wind at all (zero power extracted). If a = 0.5, the wind is stopped to half speed at the disk. If a = 1, the wind stops completely (bad! turbine would stall).
+  </div>
+</div>
+
+<!-- ══════════════════════ POWER COEFFICIENT ════════════════════════ -->
+<div class="card pink" id="power-coeff">
+  <h3>⚙️ Power Coefficient (Cp) — How Efficient is the Turbine?</h3>
+
+  <p>The <strong>Power Coefficient Cp</strong> tells us what fraction of available wind power the turbine actually captures:</p>
+  <div class="formula-box">
+    \[ C_p = \frac{\text{Power of rotor}}{\text{Power in the wind}} = \frac{P_{out}}{P_{available}} \]
+  </div>
+
+  <p>After substituting the induction factor formulas, we get:</p>
+  <div class="formula-box">
+    \[ P_{out} = 2\rho A_2 V_1^3 (1-a)^2 a \]
+    \[ \boxed{C_p = 4a(1-a)^2} \]
+    <p class="label">This is the power coefficient in terms of axial induction factor <em>a</em></p>
+  </div>
+
+  <p>To maximize Cp, differentiate with respect to a and set to zero:</p>
+  <div class="formula-box">
+    \[ \frac{dC_p}{da} = 4(1-a)^2 + 4a \cdot 2(1-a)(-1) = 0 \]
+    \[ \Rightarrow a = \frac{1}{3} \text{ (or a = 1, rejected)} \]
+    \[ C_p\big|_{max} = 4 \cdot \frac{1}{3}\left(1 - \frac{1}{3}\right)^2 = \frac{16}{27} \approx 0.593 \]
+  </div>
+
+  <p>The <strong>Thrust Coefficient CT</strong>:</p>
+  <div class="formula-box">
+    \[ C_T = \frac{\text{Thrust force}}{\text{Dynamic force}} = 4a(1-a) \]
+    <p>At a = 1/3: &nbsp; \(C_T = \frac{8}{9} \approx 0.88\)</p>
+    <p>At a = 0.5: &nbsp; \(C_T = 1\), \quad C_p = 0.5</p>
+  </div>
+
+  <!-- Cp vs a diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 600 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="600" height="320" fill="#fff" rx="12"/>
+      <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Cp and CT vs Axial Induction Factor (a)</text>
+
+      <!-- Axes -->
+      <line x1="70" y1="260" x2="550" y2="260" stroke="#333" stroke-width="2"/>
+      <line x1="70" y1="40" x2="70" y2="260" stroke="#333" stroke-width="2"/>
+      <!-- X axis labels -->
+      <text x="550" y="275" font-size="12" fill="#333">a</text>
+      <text x="70" y="275" text-anchor="middle" font-size="11" fill="#555">0</text>
+      <text x="166" y="275" text-anchor="middle" font-size="11" fill="#555">0.2</text>
+      <text x="262" y="275" text-anchor="middle" font-size="11" fill="#555">0.4</text>
+      <text x="358" y="275" text-anchor="middle" font-size="11" fill="#555">0.6</text>
+      <text x="454" y="275" text-anchor="middle" font-size="11" fill="#555">0.8</text>
+      <!-- Y axis labels -->
+      <text x="55" y="264" text-anchor="end" font-size="11" fill="#555">0</text>
+      <text x="55" y="200" text-anchor="end" font-size="11" fill="#555">0.25</text>
+      <text x="55" y="150" text-anchor="end" font-size="11" fill="#555">0.5</text>
+      <text x="55" y="100" text-anchor="end" font-size="11" fill="#555">0.75</text>
+      <text x="55" y="52" text-anchor="end" font-size="11" fill="#555">1.0</text>
+      <!-- Y gridlines -->
+      <line x1="70" y1="200" x2="550" y2="200" stroke="#eee" stroke-width="1"/>
+      <line x1="70" y1="150" x2="550" y2="150" stroke="#eee" stroke-width="1"/>
+      <line x1="70" y1="100" x2="550" y2="100" stroke="#eee" stroke-width="1"/>
+
+      <!-- Cp curve: Cp=4a(1-a)^2, a from 0 to 1 -->
+      <!-- x_px = 70 + a*480, y_px = 260 - Cp*220 -->
+      <polyline fill="none" stroke="#e53935" stroke-width="3" points="
+        70,260 94,230 118,202 142,178 166,157 190,140 214,126 238,116 262,110 286,108 310,111
+        334,118 358,131 382,148 406,171 430,199 454,232 478,260 502,260
+      "/>
+
+      <!-- CT curve: CT=4a(1-a), a from 0 to 1 -->
+      <!-- CT max at a=0.5: CT=1 -->
+      <polyline fill="none" stroke="#1e88e5" stroke-width="3" points="
+        70,260 94,238 118,218 142,200 166,184 190,170 214,158 238,148 262,140 286,134 310,130
+        334,128 358,128 382,130 406,134 430,140 454,148 478,158 502,170 526,184 550,200
+      "/>
+
+      <!-- Betz limit line -->
+      <line x1="70" y1="107" x2="550" y2="107" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="555" y="111" font-size="11" fill="#2e7d32">Betz 0.593</text>
+
+      <!-- a=1/3 vertical -->
+      <line x1="230" y1="40" x2="230" y2="260" stroke="#ff6f00" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="225" y="36" text-anchor="middle" font-size="10" fill="#ff6f00">a=1/3</text>
+
+      <!-- Legend -->
+      <line x1="100" y1="40" x2="130" y2="40" stroke="#e53935" stroke-width="3"/>
+      <text x="135" y="45" font-size="12" fill="#e53935">Cp (power coeff.)</text>
+      <line x1="100" y1="58" x2="130" y2="58" stroke="#1e88e5" stroke-width="3"/>
+      <text x="135" y="63" font-size="12" fill="#1e88e5">CT (thrust coeff.)</text>
+    </svg>
+    <figcaption>Fig 4: Cp peaks at 0.593 (Betz limit) when a = 1/3. CT peaks at 1 when a = 0.5.</figcaption>
+  </div>
+
+  <p><strong>Tip Speed Ratio (TSR)</strong> — ratio of blade tip speed to free stream wind speed:</p>
+  <div class="formula-box">
+    \[ TSR = \frac{R\omega}{V_\infty} = \frac{R \cdot 2\pi N}{60 \times V_\infty} \]
+    <p class="label">R = rotor radius, ω = angular velocity, N = RPM, V∞ = wind speed</p>
+  </div>
+</div>
+
+<!-- ══════════════════════ WIND SPEED VARIATION ════════════════════════ -->
+<div class="card teal" id="wind-speed">
+  <h3>📊 Wind Speed Variation with Height</h3>
+  <p>Wind speed is <strong>not the same</strong> at all heights — it increases as you go higher! We use two main laws to describe this.</p>
+
+  <h4 style="margin: 18px 0 10px; color: #004d40;">① Power Law</h4>
+  <div class="formula-box">
+    \[ V \propto z^\alpha \implies \frac{V_1}{V_2} = \left(\frac{z_1}{z_2}\right)^\alpha \]
+    <p class="label">z = height &nbsp;|&nbsp; α = power index (terrain-dependent)</p>
+  </div>
+
+  <table>
+    <tr><th>α value</th><th>Terrain type</th></tr>
+    <tr><td>α = 0.1</td><td>🌊 Smooth terrain (flat open land)</td></tr>
+    <tr><td>α ∈ [0.1, 0.2]</td><td>🌾 Moderately rough terrain</td></tr>
+    <tr><td>α ∈ [0.25, 0.4]</td><td>🏙️ Urban / built-up areas</td></tr>
+  </table>
+
+  <div class="tip-box">Power law is mainly used for heights of <strong>100–200 m</strong> (where most large turbines operate).</div>
+
+  <h4 style="margin: 18px 0 10px; color: #004d40;">② Logarithmic Profile (Log Law)</h4>
+  <div class="formula-box">
+    \[ V(z) = \frac{u^*}{\kappa}\ln\!\left(\frac{z}{z_0}\right) \]
+    where \(u^* = \sqrt{\frac{\tau_0}{\rho}}\) (friction velocity), \(\kappa = 0.4\) (von Kármán constant)
+    <p class="label">z₀ = roughness length (depends on surface type)</p>
+  </div>
+
+  <p><strong>Roughness lengths (z₀) for different surfaces:</strong></p>
+  <table>
+    <tr><th>Surface</th><th>z₀ (mm)</th></tr>
+    <tr><td>🧊 Smooth ice / mud</td><td>0.01</td></tr>
+    <tr><td>🌊 Open sea (calm)</td><td>0.20</td></tr>
+    <tr><td>🌊 Wind sea</td><td>0.50</td></tr>
+    <tr><td>🌾 Crops</td><td>50.00</td></tr>
+    <tr><td>🌳 Forests</td><td>500</td></tr>
+    <tr><td>🏘️ Suburban</td><td>1500</td></tr>
+    <tr><td>🏙️ Tall buildings</td><td>3000</td></tr>
+  </table>
+
+  <div class="example-box">
+    <strong>Quick Logic:</strong> A wind farm in the middle of flat farmland has low roughness (z₀ ≈ 50 mm), so wind speeds up well with height. A turbine in a city surrounded by tall buildings has high roughness (z₀ ≈ 3000 mm) — winds stay choppy and slower. That's why offshore wind farms are more efficient — the sea is very smooth!
+  </div>
+</div>
+
+<!-- ══════════════════════ WIND FARM DESIGN ════════════════════════ -->
+<div class="card" id="wind-farm">
+  <h3>🏗️ Wind Farm Design — Four Pillars</h3>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="220" fill="#e3f2fd" rx="12"/>
+      <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#0d47a1">Wind Farm Design Components</text>
+
+      <!-- Central box -->
+      <rect x="270" y="70" width="160" height="50" rx="10" fill="#1e88e5"/>
+      <text x="350" y="91" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Wind Farm</text>
+      <text x="350" y="109" text-anchor="middle" font-size="11" fill="white">Design</text>
+
+      <!-- 4 pillars -->
+      <!-- Site Selection -->
+      <rect x="30" y="48" width="160" height="44" rx="8" fill="#fff3e0" stroke="#ff6f00" stroke-width="2"/>
+      <text x="110" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#bf360c">📍 Site Selection</text>
+      <text x="110" y="85" text-anchor="middle" font-size="10" fill="#555">Offshore / Onshore</text>
+      <line x1="190" y1="70" x2="270" y2="92" stroke="#ff6f00" stroke-width="1.5"/>
+
+      <!-- Wind Resource -->
+      <rect x="510" y="48" width="160" height="44" rx="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+      <text x="590" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b5e20">📊 Wind Resource</text>
+      <text x="590" y="85" text-anchor="middle" font-size="10" fill="#555">Stats & Power Density</text>
+      <line x1="510" y1="70" x2="430" y2="92" stroke="#2e7d32" stroke-width="1.5"/>
+
+      <!-- Wind Turbine -->
+      <rect x="30" y="130" width="160" height="44" rx="8" fill="#fce4ec" stroke="#c62828" stroke-width="2"/>
+      <text x="110" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#880e4f">🔧 Turbine</text>
+      <text x="110" y="168" text-anchor="middle" font-size="10" fill="#555">Selection / Capacity</text>
+      <line x1="190" y1="152" x2="270" y2="120" stroke="#c62828" stroke-width="1.5"/>
+
+      <!-- Wake Modelling -->
+      <rect x="510" y="130" width="160" height="44" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="590" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#4a148c">💨 Wake</text>
+      <text x="590" y="168" text-anchor="middle" font-size="10" fill="#555">Modelling</text>
+      <line x1="510" y1="152" x2="430" y2="120" stroke="#7b1fa2" stroke-width="1.5"/>
+    </svg>
+    <figcaption>Fig 5: The four key pillars of wind farm design</figcaption>
+  </div>
+</div>
+
+<!-- ══════════════════════ JENSEN MODEL ════════════════════════════ -->
+<div class="card" id="jensen">
+  <h3>🔄 Jensen Wake Model (Top Hat Model)</h3>
+  <p>When a turbine extracts energy from wind, it creates a <strong>wake</strong> — a region of slower wind behind it. The next turbine in line will get slower wind and produce less power! The Jensen model helps us calculate this.</p>
+
+  <div class="analogy">
+    <div class="emoji">🏊</div>
+    <div>Imagine swimming behind someone — you feel the turbulent, disturbed water they leave behind. Wind turbines do the same to air! The second turbine gets the "disturbed" air.</div>
+  </div>
+
+  <!-- Jensen Model Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="680" height="260" fill="#e8f5e9" rx="12"/>
+      <text x="340" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b5e20">Jensen Wake Model — Wake Expansion Behind Turbine</text>
+
+      <!-- Turbine -->
+      <line x1="120" y1="60" x2="120" y2="200" stroke="#333" stroke-width="4"/>
+      <line x1="120" y1="130" x2="80" y2="80" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
+      <line x1="120" y1="130" x2="80" y2="180" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
+      <line x1="120" y1="130" x2="160" y2="90" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
+      <rect x="108" y="198" width="24" height="10" rx="3" fill="#888"/>
+      
+      <!-- R label -->
+      <line x1="124" y1="60" x2="124" y2="130" stroke="#e53935" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="132" y="98" font-size="12" font-weight="bold" fill="#e53935">R</text>
+
+      <!-- Wake cone -->
+      <path d="M120,60 L580,30" stroke="#ff7043" stroke-width="2" stroke-dasharray="6,3"/>
+      <path d="M120,200 L580,230" stroke="#ff7043" stroke-width="2" stroke-dasharray="6,3"/>
+      <text x="560" y="26" font-size="12" font-weight="bold" fill="#bf360c">R_w</text>
+      
+      <!-- Wake fill -->
+      <path d="M120,65 L580,34 L580,226 L120,195 Z" fill="#a5d6a7" fill-opacity="0.3"/>
+      
+      <!-- Incoming wind arrows -->
+      <line x1="20" y1="100" x2="110" y2="100" stroke="#1565c0" stroke-width="2" marker-end="url(#arJ)"/>
+      <line x1="20" y1="130" x2="110" y2="130" stroke="#1565c0" stroke-width="2" marker-end="url(#arJ)"/>
+      <line x1="20" y1="160" x2="110" y2="160" stroke="#1565c0" stroke-width="2" marker-end="url(#arJ)"/>
+      <text x="20" y="92" font-size="12" font-weight="bold" fill="#0d47a1">U∞</text>
+      
+      <!-- Wake velocity -->
+      <line x1="200" y1="130" x2="400" y2="130" stroke="#e53935" stroke-width="2" marker-end="url(#arJr)"/>
+      <text x="280" y="120" font-size="12" font-weight="bold" fill="#e53935">V_d &lt; U∞</text>
+
+      <!-- x label -->
+      <line x1="120" y1="240" x2="560" y2="240" stroke="#555" stroke-width="1.5" marker-end="url(#arJ)"/>
+      <text x="340" y="256" text-anchor="middle" font-size="12" fill="#555">x (downstream distance)</text>
+      
+      <!-- k label -->
+      <text x="430" y="55" font-size="11" fill="#bf360c" font-style="italic">k = expansion ratio ≈ 0.04–0.075</text>
+
+      <defs>
+        <marker id="arJ" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#0d47a1"/>
+        </marker>
+        <marker id="arJr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#e53935"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 6: Jensen model — wake expands conically behind the turbine. Downstream velocity V_d is less than free stream U∞</figcaption>
+  </div>
+
+  <div class="formula-box">
+    <p>Wake radius at downstream distance x:</p>
+    \[ R_w = R(1 + 2k\mu) \quad \text{where } \mu = \frac{x}{R} \]
+    <p>Downstream (wake) velocity:</p>
+    \[ V_d = U_\infty\left(1 - \frac{1 - \sqrt{1-C_T}}{(1+2k\mu)^2}\right) \]
+    <p>Velocity deficit:</p>
+    \[ \frac{\text{deficit}}{U_\infty} = 1 - \frac{V_d}{U_\infty} = \frac{1-\sqrt{1-C_T}}{(1+2k\mu)^2} \]
+    <p class="label">k ≈ 0.075 (onshore) &nbsp;|&nbsp; k ≈ 0.04 (offshore) &nbsp;|&nbsp; C_T = thrust coefficient</p>
+  </div>
+
+  <div class="formula-box">
+    <p>k can also be expressed as:</p>
+    \[ k = \frac{0.5}{\ln\!\left(\frac{H_b}{H_0}\right)} \]
+    <p class="label">H_b = hub height &nbsp;|&nbsp; H₀ = roughness height</p>
+  </div>
+
+  <p><strong>Wind Farm Efficiency:</strong></p>
+  <div class="formula-box">
+    \[ \eta_{w.f.} = \frac{\text{Energy generated by all turbines (with wake)}}{\text{Energy generated by all turbines (without wake)}} \]
+  </div>
+
+  <div class="example-box">
+    <strong>Example from notes — Square Wind Farm:</strong><br>
+    Given: Square farm, side = 200 m, HAWT turbines, 3 blades, rotor diameter = 20 m, hub height = 300 m (wait — this looks like 30 m in context), wind speed = 10 m/s steady, k = 0.075<br><br>
+
+    Step 1 — Find wake velocity deficit for T1→T2 (spacing μ = 200/10 = 20):
+    \[ \frac{V_d}{U_\infty} = 1 - \frac{1-\sqrt{1-0.75}}{(1+2\times0.075\times20)^2} = 1 - \frac{1-0.5}{(1+3)^2} = 1 - \frac{0.5}{16} \approx 0.03125\,U_\infty \]
+    So V_d = 0.03125 × 10 = <strong>0.3125 m/s deficit</strong> → downstream turbine sees ≈ 9.69 m/s<br><br>
+
+    Step 2 — Calculate efficiencies for square (≈ 95.35%) vs triangle (≈ 98.8%) configuration.<br>
+    <span class="hl-green">Triangle configuration is more efficient!</span> because turbines are spaced better and the wake affects fewer turbines.
+  </div>
+</div>
+
+<!-- ════════════════════════ BIOMASS SECTION ════════════════════════════ -->
+<div class="section-header bio" id="biomass">
+  <div class="icon">🌿</div>
+  <div>
+    <h2>Biomass Energy Sources</h2>
+    <p>Energy from organic matter — plants, animals, and microorganisms!</p>
+  </div>
+</div>
+
+<div class="card green">
+  <h3>🌱 What is Biomass?</h3>
+  <p>Biomass is <span class="hl-green">organic carbon-based material</span> from plants, animals, and micro-organisms — grown on land and in water — and their derivatives.</p>
+  <p>It reacts with oxygen in <strong>metabolic processes</strong> and during <strong>combustion</strong>, releasing heat energy.</p>
+
+  <div class="analogy">
+    <div class="emoji">🌳</div>
+    <div>Think of a campfire — that's biomass energy! Wood (organic material) burns and releases heat. Biomass energy is just a more sophisticated version of this ancient concept!</div>
+  </div>
+
+  <p><strong>Three main methods to get energy from biomass:</strong></p>
+  <div class="steps">
+    <div class="step"><div class="step-num green">1</div><div><strong>Thermochemical:</strong> Combustion, gasification, pyrolysis</div></div>
+    <div class="step"><div class="step-num green">2</div><div><strong>Biochemical:</strong> Biogas, fermentation to make alcohol fuel (ethanol)</div></div>
+    <div class="step"><div class="step-num green">3</div><div><strong>Oil Extraction:</strong> Biodiesel from plant oils and seeds</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ GASIFICATION ════════════════════════════ -->
+<div class="card green" id="gasification">
+  <h3>🔥 Gasification — Turning Solid Biomass into Gas!</h3>
+  <p>Gasification is the process of converting <strong>solid biomass</strong> with a <strong>limited quantity of air</strong> into a combustible gas called <strong>producer gas</strong>.</p>
+
+  <div class="analogy">
+    <div class="emoji">🪄</div>
+    <div>It's like magic — you put in wood chips or agricultural waste, add just a little air, and get a flammable gas out! This gas can run engines and generate electricity.</div>
+  </div>
+
+  <!-- Gasifier Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 620 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="620" height="360" fill="#f1f8e9" rx="12"/>
+      <text x="310" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b5e20">Biomass Gasifier — Zones Inside</text>
+
+      <!-- Gasifier body -->
+      <rect x="200" y="40" width="200" height="280" rx="12" fill="#a5d6a7" fill-opacity="0.4" stroke="#2e7d32" stroke-width="3"/>
+
+      <!-- Zones -->
+      <!-- Drying zone 120° -->
+      <rect x="200" y="40" width="200" height="55" rx="0" fill="#fff9c4" fill-opacity="0.8"/>
+      <text x="300" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#f57f17">🌡️ Drying Zone</text>
+      <text x="300" y="79" text-anchor="middle" font-size="11" fill="#555">~120°C (moisture removed)</text>
+
+      <!-- Pyrolysis zone 200-600°C -->
+      <rect x="200" y="95" width="200" height="60" fill="#ffe0b2" fill-opacity="0.8"/>
+      <text x="300" y="117" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">🔥 Pyrolysis Zone</text>
+      <text x="300" y="134" text-anchor="middle" font-size="11" fill="#555">200–600°C (biomass breaks down)</text>
+
+      <!-- Endothermic/thermo zone -->
+      <rect x="200" y="155" width="200" height="55" fill="#b3e5fc" fill-opacity="0.8"/>
+      <text x="300" y="177" text-anchor="middle" font-size="12" font-weight="bold" fill="#01579b">🌬️ Endo-thermic Zone</text>
+      <text x="300" y="194" text-anchor="middle" font-size="11" fill="#555">Biomass loses volatility → Producer Gas</text>
+
+      <!-- Reduction zone 900-600°C -->
+      <rect x="200" y="210" width="200" height="60" fill="#ffccbc" fill-opacity="0.8"/>
+      <text x="300" y="232" text-anchor="middle" font-size="12" font-weight="bold" fill="#bf360c">⚗️ Reduction Zone</text>
+      <text x="300" y="248" text-anchor="middle" font-size="11" fill="#555">900–600°C (CO₂ + C → 2CO)</text>
+
+      <!-- Ash pit -->
+      <rect x="200" y="270" width="200" height="50" rx="0" fill="#d7ccc8" fill-opacity="0.8"/>
+      <text x="300" y="299" text-anchor="middle" font-size="12" font-weight="bold" fill="#4e342e">🗑️ Ash Pit</text>
+
+      <!-- Inputs -->
+      <!-- Air inputs -->
+      <line x1="120" y1="180" x2="200" y2="180" stroke="#42a5f5" stroke-width="2.5" marker-end="url(#arBio)"/>
+      <text x="80" y="175" font-size="12" font-weight="bold" fill="#0d47a1">Air →</text>
+      <line x1="120" y1="230" x2="200" y2="230" stroke="#42a5f5" stroke-width="2.5" marker-end="url(#arBio)"/>
+      <text x="80" y="225" font-size="12" font-weight="bold" fill="#0d47a1">Air →</text>
+
+      <!-- Biomass input from top -->
+      <line x1="300" y1="10" x2="300" y2="40" stroke="#795548" stroke-width="3" marker-end="url(#arBio2)"/>
+      <text x="300" y="10" text-anchor="middle" font-size="12" font-weight="bold" fill="#4e342e">Biomass ↓</text>
+
+      <!-- Producer gas output -->
+      <line x1="400" y1="115" x2="500" y2="115" stroke="#e53935" stroke-width="2.5" marker-end="url(#arBio)"/>
+      <text x="505" y="120" font-size="12" font-weight="bold" fill="#e53935">Producer Gas</text>
+      <text x="505" y="136" font-size="10" fill="#555">(CO+H₂+CH₄)</text>
+
+      <defs>
+        <marker id="arBio" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#0d47a1"/>
+        </marker>
+        <marker id="arBio2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#795548"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 7: Zones inside a biomass gasifier — biomass enters at top, air from sides, producer gas exits, ash falls to bottom</figcaption>
+  </div>
+
+  <p><strong>Producer Gas Composition:</strong></p>
+  <table class="green-table">
+    <tr><th>Component</th><th>Percentage</th><th>Notes</th></tr>
+    <tr><td>CO (Carbon Monoxide)</td><td>20–22%</td><td>⭐ Area of interest — combustible!</td></tr>
+    <tr><td>H₂ (Hydrogen)</td><td>15–18%</td><td>⭐ Area of interest — combustible!</td></tr>
+    <tr><td>CH₄ (Methane)</td><td>2–4%</td><td>⭐ Area of interest — combustible!</td></tr>
+    <tr><td>CO₂ (Carbon Dioxide)</td><td>9–11%</td><td>Non-combustible, byproduct</td></tr>
+    <tr><td>N₂ (Nitrogen)</td><td>50–54%</td><td>Inert, majority of the gas</td></tr>
+  </table>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">Principal Reactions inside Gasifier:</h4>
+  <div class="formula-box">
+    \[ C + CO_2 \rightarrow 2CO \quad \text{(Boudouard reaction)} \]
+    \[ C + H_2O \rightarrow CO + H_2 \quad \text{(Water-gas reaction)} \]
+    \[ C + 2H_2O \rightarrow CO_2 + 2H_2 \]
+  </div>
+
+  <div class="info-grid">
+    <div class="info-tile green-tile"><span class="big">4000–5000</span><span class="lbl">Heating Value of Producer Gas (kJ/m³)</span></div>
+    <div class="info-tile blue-tile"><span class="big">60–75%</span><span class="lbl">Conversion Efficiency Range</span></div>
+  </div>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">Pyrolysis:</h4>
+  <p>Thermal decomposition of biomass in the <strong>absence of air</strong>. Unlike gasification (which has limited air), pyrolysis has <em>zero</em> air.</p>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">Types of Gasifiers:</h4>
+  <div class="steps">
+    <div class="step"><div class="step-num green">1</div><div><strong>Fixed Bed (Downdraft)</strong> — gas and biomass flow in same direction (downward)</div></div>
+    <div class="step"><div class="step-num green">2</div><div><strong>Fixed Bed (Cross-flow)</strong> — air enters from side</div></div>
+    <div class="step"><div class="step-num green">3</div><div><strong>Fluidized Bed</strong> — biomass suspended in upward flowing gas (most efficient)</div></div>
+  </div>
+
+  <div class="example-box">
+    <strong>Worked Example from Notes:</strong><br>
+    A biomass gasifier runs an IC engine (dual fuel, 80% diesel replacement) producing <strong>350 kW</strong>. Engine efficiency η = 35%, calorific value of biomass = 16,800 kJ/kg.<br><br>
+
+    Step 1 — Energy needed from producer gas (86% of total = 0.86 × total):
+    \[ \frac{350 \times 10^3}{J/P} = 0.35 \implies J/P\text{ power} = \frac{350\times10^3}{0.35} = 10^6 \approx 1000\text{ kW} \]
+
+    Step 2 — Energy in producer gas = 800 kW (given η_conversion = 0.75):
+    \[ \dot{m}\times 16800 \times 0.75 = 800 \text{ kW} \]
+    \[ \dot{m} = \frac{800}{16800 \times 0.75} = 0.0634 \text{ kg/s} = 63.4 \text{ g/s} \]
+    <span class="hl-green">Biomass feeding rate ≈ 63.4 g/s</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ BIOGAS ════════════════════════════════ -->
+<div class="card green" id="biogas">
+  <h3>💧 Biogas / Bio-Gas Plant</h3>
+  <p>Biogas is produced when <strong>organic waste</strong> (like animal dung) is broken down by bacteria <em>without oxygen</em>. The main product is <strong>methane (CH₄)</strong> — a clean fuel!</p>
+
+  <!-- Biogas Plant Diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="680" height="300" fill="#e8f5e9" rx="12"/>
+      <text x="340" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b5e20">Biogas / Bio-Gas Plant — How it Works</text>
+
+      <!-- Digester body (underground) -->
+      <rect x="180" y="100" width="280" height="160" rx="20" fill="#a5d6a7" fill-opacity="0.5" stroke="#2e7d32" stroke-width="3"/>
+      
+      <!-- Partition wall inside -->
+      <line x1="320" y1="100" x2="320" y2="260" stroke="#1b5e20" stroke-width="3" stroke-dasharray="5,3"/>
+      <text x="252" y="185" text-anchor="middle" font-size="11" fill="#1b5e20" font-style="italic">slurry</text>
+      <text x="385" y="185" text-anchor="middle" font-size="11" fill="#1b5e20" font-style="italic">slurry</text>
+      <text x="320" y="275" text-anchor="middle" font-size="10" fill="#555">partition wall</text>
+
+      <!-- Dome -->
+      <ellipse cx="320" cy="100" rx="100" ry="35" fill="#ffcc80" fill-opacity="0.8" stroke="#ff6f00" stroke-width="2.5"/>
+      <text x="320" y="104" text-anchor="middle" font-size="12" font-weight="bold" fill="#bf360c">DOME (gas holder)</text>
+
+      <!-- Biogas output from dome -->
+      <line x1="320" y1="65" x2="320" y2="35" stroke="#e53935" stroke-width="3" marker-end="url(#arGas)"/>
+      <text x="320" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#e53935">🔥 Biogas ↑</text>
+      <text x="430" y="55" font-size="10" fill="#333">(CH₄ mainly)</text>
+
+      <!-- Feed input -->
+      <line x1="130" y1="130" x2="180" y2="155" stroke="#795548" stroke-width="2.5" marker-end="url(#arFeed)"/>
+      <text x="60" y="130" font-size="12" font-weight="bold" fill="#4e342e">Feed →</text>
+      <text x="60" y="146" font-size="10" fill="#555">(dung+water)</text>
+
+      <!-- Sludge output -->
+      <line x1="460" y1="180" x2="540" y2="155" stroke="#8d6e63" stroke-width="2.5" marker-end="url(#arSludge)"/>
+      <text x="545" y="158" font-size="12" font-weight="bold" fill="#4e342e">→ Sludge</text>
+      <text x="545" y="174" font-size="10" fill="#555">(fertiliser!)</text>
+
+      <!-- Underground label -->
+      <text x="320" y="295" text-anchor="middle" font-size="11" fill="#555" font-style="italic">Digester — normally below ground level</text>
+      
+      <!-- Depth label -->
+      <line x1="170" y1="100" x2="170" y2="260" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="155" y="185" font-size="10" fill="#555" transform="rotate(-90, 155, 185)">3-6 m depth</text>
+
+      <defs>
+        <marker id="arGas" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#e53935"/>
+        </marker>
+        <marker id="arFeed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#795548"/>
+        </marker>
+        <marker id="arSludge" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#8d6e63"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 8: Cross-section of a biogas plant. Animal dung + water → digester → biogas (up) + sludge (fertiliser)</figcaption>
+  </div>
+
+  <p><strong>Key facts about Biogas Plants:</strong></p>
+  <div class="info-grid">
+    <div class="info-tile green-tile"><span class="big">16,000–25,000</span><span class="lbl">Calorific Value of Biogas (kJ/m³)</span></div>
+    <div class="info-tile blue-tile"><span class="big">1 kg</span><span class="lbl">Dry cattle dung → 1 m³ biogas</span></div>
+    <div class="info-tile orange-tile"><span class="big">40 days</span><span class="lbl">Retention period</span></div>
+    <div class="info-tile pink-tile"><span class="big">1.2 – 6 m</span><span class="lbl">Digester diameter range</span></div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Sludge = Free Fertiliser!</strong> The leftover sludge from the biogas plant contains nitrogen (N), phosphorus (P), and potassium (K) — which are excellent plant fertilisers. So a biogas plant gives you fuel AND fertiliser! 🌱
+  </div>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">Digester Sizing Formulas:</h4>
+  <div class="formula-box">
+    <p>Energy available from biogas digester:</p>
+    \[ E = \eta H_b V_b \]
+    Also: \( E = \eta H_m F_m V_b \)
+    <p class="label">η = efficiency of burner (~66%) &nbsp;|&nbsp; H_b = heating value of biogas (~20 MJ/m³)<br>V_b = volume of biogas = C·m₀ &nbsp;|&nbsp; C = biogas per unit day mass of whole input<br>H_m = CV of methane (~56 MJ/kg) &nbsp;|&nbsp; F_m = fraction of methane (~0.7)</p>
+  </div>
+
+  <div class="formula-box">
+    <p>Volume of fluid in digester:</p>
+    \[ V_f = \frac{m_0}{S_m} \]
+    <p>Volume of digester:</p>
+    \[ V_d = V_f \cdot t_r \]
+    <p class="label">S_m = density of dry material in fluid &nbsp;|&nbsp; t_r = retention time</p>
+  </div>
+
+  <div class="example-box">
+    <strong>Worked Example — Biogas Digester Sizing:</strong><br>
+    An engine running on biogas produces <strong>2 kW</strong> of electric power. Cow dung is used as feed.<br>
+    Given: CV of biogas = 20,000 kJ/m³, η_gen = 90.1%, η_engine = 3%<br><br>
+
+    Chain: Biogas plant → Generator → Engine → 2 kW output<br>
+    \[ E_{biogas} \times \eta_{gen} \times \eta_{engine} = 2\text{ kW} \]
+    \[ V_{biogas} = \frac{2}{20000 \times 10^3 \times 0.901 \times 0.03} \approx 3.69 \times 10^{-3} \text{ m}^3/\text{s} \]
+    <p>For continuous operation (24 hrs × 3600 s):
+    \[ Q_{day} = 0.00037 \times 24 \times 3600 = 31.88 \text{ m}^3/\text{day} \]
+    Mass of dry cow dung needed = 31.88 kg/day<br>
+    Mass of fresh dung (8% dry content) = 31.88/0.08 = <span class="hl-green">398.5 kg/day</span><br>
+    Volume of digester = 719.1 L/day × 40 days ≈ <span class="hl-green">~29 m³</span></p>
+  </div>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">Design Considerations for a Biogas Plant:</h4>
+  <div class="steps">
+    <div class="step"><div class="step-num green">1</div><div>Volume of waste to be digested</div></div>
+    <div class="step"><div class="step-num green">2</div><div>Type and amount of waste available for digestion</div></div>
+    <div class="step"><div class="step-num green">3</div><div>Period of digestion (retention time)</div></div>
+    <div class="step"><div class="step-num green">4</div><div>Method of stirring</div></div>
+    <div class="step"><div class="step-num green">5</div><div>Method of mass feeding and removal</div></div>
+    <div class="step"><div class="step-num green">6</div><div>Climatic conditions of the region</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ BIODIESEL ════════════════════════════════ -->
+<div class="card green" id="biodiesel">
+  <h3>🚗 Bio-Diesel — Fuel from Plants!</h3>
+  <p>Biodiesel is produced from <strong>edible and non-edible biomass</strong> — vegetable oils, yellow grease, cooking oil, animal fats, seeds, nuts, and grains. It's a substitute for conventional diesel!</p>
+
+  <h4 style="margin: 16px 0 10px; color: #1b5e20;">1. Bio-Ethanol (Alcohol Fuel)</h4>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 680 180" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="680" height="180" fill="#f3e5f5" rx="12"/>
+      <text x="340" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="#4a148c">Bio-Ethanol Production — Two Routes</text>
+
+      <!-- Fermentation route -->
+      <rect x="30" y="45" width="120" height="40" rx="8" fill="#ce93d8" fill-opacity="0.6" stroke="#7b1fa2" stroke-width="1.5"/>
+      <text x="90" y="62" text-anchor="middle" font-size="11" font-weight="bold" fill="#4a148c">Biomass</text>
+      <text x="90" y="77" text-anchor="middle" font-size="10" fill="#333">(sugarcane,starch)</text>
+
+      <line x1="150" y1="65" x2="210" y2="65" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arEt)"/>
+      <text x="178" y="58" text-anchor="middle" font-size="10" fill="#7b1fa2">Fermentation</text>
+
+      <rect x="210" y="45" width="120" height="40" rx="8" fill="#f48fb1" fill-opacity="0.6" stroke="#c62828" stroke-width="1.5"/>
+      <text x="270" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#880e4f">Ethanol 🍺</text>
+
+      <!-- Chemical synthesis route -->
+      <rect x="30" y="115" width="120" height="40" rx="8" fill="#ce93d8" fill-opacity="0.6" stroke="#7b1fa2" stroke-width="1.5"/>
+      <text x="90" y="132" text-anchor="middle" font-size="11" font-weight="bold" fill="#4a148c">Cellulose</text>
+      <text x="90" y="147" text-anchor="middle" font-size="10" fill="#333">biomass</text>
+
+      <line x1="150" y1="135" x2="210" y2="135" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arEt)"/>
+      <text x="178" y="126" text-anchor="middle" font-size="10" fill="#7b1fa2">Hydrolysis</text>
+      <text x="178" y="144" text-anchor="middle" font-size="10" fill="#7b1fa2">+ Ferment</text>
+
+      <rect x="210" y="115" width="120" height="40" rx="8" fill="#f48fb1" fill-opacity="0.6" stroke="#c62828" stroke-width="1.5"/>
+      <text x="270" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="#880e4f">Ethanol 🍺</text>
+
+      <!-- Arrow to use -->
+      <line x1="330" y1="100" x2="440" y2="100" stroke="#555" stroke-width="2" marker-end="url(#arEt)"/>
+      <rect x="440" y="72" width="200" height="56" rx="8" fill="#fff3e0" stroke="#ff6f00" stroke-width="1.5"/>
+      <text x="540" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#bf360c">Blended with</text>
+      <text x="540" y="113" text-anchor="middle" font-size="11" fill="#333">petrol → automotive</text>
+      <text x="540" y="128" text-anchor="middle" font-size="11" fill="#333">engine fuel ⛽</text>
+
+      <!-- Fermentation reaction -->
+      <text x="340" y="165" text-anchor="middle" font-size="10" fill="#4a148c">C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂ (fermentation)</text>
+
+      <defs>
+        <marker id="arEt" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#7b1fa2"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 9: Two routes to make bio-ethanol — fermentation and hydrolysis</figcaption>
+  </div>
+
+  <h4 style="margin: 18px 0 10px; color: #1b5e20;">2. Bio-Diesel — Transesterification Process</h4>
+  <p>Biodiesel is made from vegetable oils through a chemical process called <strong>transesterification</strong> — treating the oil with alcohol (methanol) and a catalyst (NaOH).</p>
+
+  <div class="formula-box">
+    <p><strong>Transesterification reaction:</strong></p>
+    \[ \underbrace{CH_2-OCO-R_1}_{} \]
+    \[ CH-OCO-R_2 + 3CH_3OH \longrightarrow CH-OH + R_2-COOCH_3 \]
+    \[ CH_2-OCO-R_3 \quad\quad\quad\quad CH_2-OH \quad R_3-COOCH_3 \]
+    <p style="margin-top: 8px;"><strong>Triglyceride (fat/oil) + Methanol → Glycerol + Methyl Esters (Biodiesel)</strong></p>
+    <p class="label">The methyl esters are the biodiesel! Glycerol is a useful byproduct.</p>
+  </div>
+
+  <!-- Biodiesel process diagram -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 680 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <rect width="680" height="200" fill="#fff3e0" rx="12"/>
+      <text x="340" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="#bf360c">Biodiesel Production Process</text>
+
+      <!-- Steps -->
+      <rect x="20" y="55" width="110" height="50" rx="8" fill="#ffcc80" stroke="#ff6f00" stroke-width="2"/>
+      <text x="75" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#bf360c">Vegetable</text>
+      <text x="75" y="92" text-anchor="middle" font-size="11" fill="#555">Oil</text>
+
+      <line x1="130" y1="80" x2="165" y2="80" stroke="#ff6f00" stroke-width="2" marker-end="url(#arBD)"/>
+
+      <rect x="165" y="55" width="110" height="50" rx="8" fill="#ffe0b2" stroke="#ff6f00" stroke-width="2"/>
+      <text x="220" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#bf360c">Esterification</text>
+      <text x="220" y="92" text-anchor="middle" font-size="10" fill="#555">(H₂SO₄+methanol)</text>
+
+      <line x1="275" y1="80" x2="310" y2="80" stroke="#ff6f00" stroke-width="2" marker-end="url(#arBD)"/>
+
+      <rect x="310" y="55" width="110" height="50" rx="8" fill="#ffe0b2" stroke="#ff6f00" stroke-width="2"/>
+      <text x="365" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#bf360c">Transesterifi-</text>
+      <text x="365" y="92" text-anchor="middle" font-size="10" fill="#555">cation(CH₃OH+NaOH)</text>
+
+      <line x1="420" y1="80" x2="455" y2="80" stroke="#ff6f00" stroke-width="2" marker-end="url(#arBD)"/>
+
+      <rect x="455" y="55" width="100" height="50" rx="8" fill="#ffe0b2" stroke="#ff6f00" stroke-width="2"/>
+      <text x="505" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#bf360c">Washing</text>
+      <text x="505" y="92" text-anchor="middle" font-size="10" fill="#555">(purification)</text>
+
+      <line x1="555" y1="80" x2="590" y2="80" stroke="#ff6f00" stroke-width="2" marker-end="url(#arBD)"/>
+
+      <rect x="590" y="55" width="75" height="50" rx="8" fill="#a5d6a7" stroke="#2e7d32" stroke-width="2"/>
+      <text x="628" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#1b5e20">Bio-</text>
+      <text x="628" y="92" text-anchor="middle" font-size="11" fill="#1b5e20">diesel ✅</text>
+
+      <!-- Glycerol byproduct -->
+      <line x1="365" y1="105" x2="365" y2="150" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arGly)"/>
+      <rect x="300" y="148" width="130" height="36" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+      <text x="365" y="165" text-anchor="middle" font-size="11" font-weight="bold" fill="#4a148c">Glycerol (out) 🧴</text>
+      <text x="365" y="180" text-anchor="middle" font-size="10" fill="#555">useful byproduct</text>
+
+      <defs>
+        <marker id="arBD" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#ff6f00"/>
+        </marker>
+        <marker id="arGly" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#7b1fa2"/>
+        </marker>
+      </defs>
+    </svg>
+    <figcaption>Fig 10: Biodiesel production — oil → esterification → transesterification → wash → biodiesel + glycerol byproduct</figcaption>
+  </div>
+
+  <div class="tip-box">
+    <strong>Esterification</strong> = combining an organic acid with an alcohol to make an Ester + water<br>
+    \[ R\text{-}COOH + R'OH \rightleftharpoons R\text{-}COO\text{-}R' + H_2O \]
+    <strong>Transesterification</strong> = treating an existing ester with a different alcohol to swap the alcohol group. This converts triglycerides (fats) → methyl esters (biodiesel)!
+  </div>
+</div>
+
+<!-- ══════════════════════ QUICK REFERENCE ════════════════════════ -->
+<div class="section-header wind" style="background: linear-gradient(135deg, #880e4f, #e91e63);">
+  <div class="icon">📋</div>
+  <div>
+    <h2>Quick Formula Reference</h2>
+    <p>All the key equations at a glance!</p>
+  </div>
+</div>
+
+<div class="card pink">
+  <h3>🌬️ Wind Energy — All Key Formulas</h3>
+  <table>
+    <tr><th>Name</th><th>Formula</th></tr>
+    <tr><td>Average velocity at disk</td><td>\(V_{avg} = \frac{V_i+V_o}{2}\)</td></tr>
+    <tr><td>Mass flow rate</td><td>\(\dot{m} = \rho A_D V_{avg}\)</td></tr>
+    <tr><td>Power output</td><td>\(P_{out} = \frac{1}{2}\dot{m}(V_i^2-V_o^2)\)</td></tr>
+    <tr><td>Available power</td><td>\(P_a = \frac{1}{2}\rho A V_i^3\)</td></tr>
+    <tr><td>Betz max power</td><td>\(P_{max} = \frac{16}{27}P_a \approx 0.593 P_a\)</td></tr>
+    <tr><td>Axial induction factor</td><td>\(a = \frac{V_1-V_2}{V_1}\)</td></tr>
+    <tr><td>Power coefficient</td><td>\(C_p = 4a(1-a)^2\)</td></tr>
+    <tr><td>Thrust coefficient</td><td>\(C_T = 4a(1-a)\)</td></tr>
+    <tr><td>Tip Speed Ratio</td><td>\(TSR = \frac{R\omega}{V_\infty}\)</td></tr>
+    <tr><td>Jensen wake velocity</td><td>\(V_d = U_\infty\!\left(1 - \frac{1-\sqrt{1-C_T}}{(1+2k\mu)^2}\right)\)</td></tr>
+    <tr><td>Wake radius</td><td>\(R_w = R(1+2k\mu)\)</td></tr>
+    <tr><td>Power law (wind profile)</td><td>\(\frac{V_1}{V_2} = \left(\frac{z_1}{z_2}\right)^\alpha\)</td></tr>
+    <tr><td>Log law (wind profile)</td><td>\(V(z) = \frac{u^*}{\kappa}\ln\!\left(\frac{z}{z_0}\right)\)</td></tr>
+  </table>
+
+  <h3 style="margin-top: 24px;">🌿 Biomass — All Key Formulas</h3>
+  <table class="green-table">
+    <tr><th>Name</th><th>Formula</th></tr>
+    <tr><td>Energy from biogas digester</td><td>\(E = \eta H_b V_b\)</td></tr>
+    <tr><td>Digester fluid volume</td><td>\(V_f = m_0/S_m\)</td></tr>
+    <tr><td>Digester volume</td><td>\(V_d = V_f \cdot t_r\)</td></tr>
+    <tr><td>Gasifier conversion efficiency</td><td>\(\eta_{conv} = \frac{\text{heat in producer gas}}{\text{heat in biomass}}\) ∈ [60%, 75%]</td></tr>
+    <tr><td>Transesterification</td><td>Triglyceride + 3CH₃OH → Glycerol + 3 Methyl Esters</td></tr>
+    <tr><td>Fermentation</td><td>\(C_6H_{12}O_6 \rightarrow 2C_2H_5OH + 2CO_2\)</td></tr>
+  </table>
+</div>
+
+</main>
+
+<footer>
+  <p>⚡ Energy Science & Technology Study Guide &nbsp;|&nbsp; Made with 💙 for curious students</p>
+  <p style="margin-top: 8px;">Content based on class notes covering Wind Energy and Biomass Energy topics</p>
+</footer>
+
+</body>
+</html>
